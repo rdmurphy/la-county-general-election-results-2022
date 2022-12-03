@@ -1,1 +1,5 @@
-# la-county-2022-election-results
+# LA County 2022 Election Results
+
+## License
+
+MIT
