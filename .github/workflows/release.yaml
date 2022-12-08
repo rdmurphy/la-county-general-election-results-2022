@@ -50,5 +50,21 @@ jobs:
               repo: context.repo.repo,
               release_id: release.data.id,
               name: "contest_results.csv",
-              data: fs.createReadStream("tmp/contest_results.csv")
+              data: fs.readFileSync("tmp/contest_results.csv")
+            });
+
+            await github.rest.repos.uploadReleaseAsset({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: release.data.id,
+              name: "precinct_results.json",
+              data: fs.readFileSync("tmp/precinct_results.json")
+            });
+
+            await github.rest.repos.uploadReleaseAsset({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: release.data.id,
+              name: "results_spatial.db",
+              data: fs.readFileSync("tmp/results_spatial.db")
             });
