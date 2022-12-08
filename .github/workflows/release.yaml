@@ -11,6 +11,9 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v3
 
+      - name: Install spatialite
+        run: sudo apt-get install -y libsqlite3-mod-spatialite
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
