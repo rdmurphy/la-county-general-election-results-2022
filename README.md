@@ -30,8 +30,8 @@ The following files are used to generate the precinct-level results and SQLite d
 
 ## Notes, etc.
 
-- The `total_votes` field found on each row in `candidates` represents the overall total votes cast for a candidate in a candidate. It is **not** a sum total of all votes reported by precinct. This is because the county intentionally redacts voter selection in precincts with a single voter to preserve their right to cast a secret ballot.
-- Thanks to the situation above this also means that precincts with redacted votes will also have a blank `location` field in the `precincts` table. This value is only available in the results spreadsheets within the ZIP file.
+- The `total_votes` field found on each row in `candidates` represents the total votes cast for a candidate in the contest as reported by the county. Because the county intentionally redacts voter selection in precincts with a single voter to preserve their right to cast a secret ballot, it's possible for this value to be greater than the sum of all votes reported by precinct.
+- Thanks to the situation above this also means that precincts with redacted votes will have a blank `location` field in the `precincts` table. This value is sourced from the Excel spreadsheets within `statement_of_votes_cast.zip`.
 
 ## License
 
