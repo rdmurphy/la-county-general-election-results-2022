@@ -28,6 +28,11 @@ The following files are used to generate the precinct-level results and SQLite d
 | `precincts.json`              | A GeoJSON representation of the precincts used for the 2022 general election. These are used to populate the `geometry` field in the `precincts` table in the the Spatialite database. This is sourced from the [Registrar Recorder Election Precincts](https://egis-lacounty.hub.arcgis.com/datasets/lacounty::registrar-recorder-election-precincts-/about) dataset found on the LA County GIS site.                                                                  |
 | `statement_of_votes_cast.zip` | A ZIP file provided by the LA County Clerk that contains a precinct-level breakdown of results for each contest in Excel format.                                                                                                                                                                                                                                                                                                                                        |
 
+## Notes, etc.
+
+- The `total_votes` field found on each row in `candidates` represents the overall total votes cast for a candidate in a candidate. It is **not** a sum total of all votes reported by precinct. This is because the county intentionally redacts voter selection in precincts with a single voter to preserve their right to cast a secret ballot.
+- Thanks to the situation above this also means that precincts with redacted votes will also have a blank `location` field in the `precincts` table. This value is only available in the results spreadsheets within the ZIP file.
+
 ## License
 
 MIT
